@@ -1,15 +1,17 @@
 def atbash_encode(text):
     ciphertext = ''
     for char in text:
-        if char.isalpha():
-            if char.islower():
-                ciphertext += chr(ord('z') - (ord(char) - ord('a')))
-                # print(f"{chr(ord('z') - (ord(char) - ord('a')))}= {ord('z')} - ({ord(char)} - {ord('a')})")
-            else:
-                ciphertext += chr(ord('Z') - (ord(char) - ord('A')))
-                # print(f"{chr(ord('Z') - (ord(char) - ord('A')))}= {ord('Z')} - ({ord(char)} - {ord('A')})")
+        if ord('a') <= ord(char) <= ord('z'):
+            encrypted_char = chr(ord('a') + ord('z') - ord(char))
+        elif ord('A') <= ord(char) <= ord('Z'):
+            encrypted_char = chr(ord('A') + ord('Z') - ord(char))
+        elif ord('а') <= ord(char) <= ord('я'):
+            encrypted_char = chr(ord('а') + ord('я') - ord(char))
+        elif ord('А') <= ord(char) <= ord('Я'):
+            encrypted_char = chr(ord('А') + ord('Я') - ord(char))
         else:
-            ciphertext += char
+            encrypted_char = char
+        ciphertext += encrypted_char
     return ciphertext
 
 def atbash_decode(ciphertext):

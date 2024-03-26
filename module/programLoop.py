@@ -2,9 +2,7 @@ from module.utilities import userInputValidation
 from module.atbash import atbash_decode, atbash_encode
 from module.gronsfeld import gronsfeld_encode, gronsfeld_decode, is_valid_gronsfeld_key
 from module.viginere import vigenere_encode, vigenere_decode, is_valid_vigenere_key
-from module.utilities import isTextValid
 
-# Global variables
 currentText = ""
 
 def helloMessage():
@@ -46,10 +44,6 @@ def changeInputMenu():
             elif userInput == 2:
                 print("Enter text:")
                 currentText = input()
-
-            if isTextValid(currentText) == False:
-                print("Text has usupported characters. Erasing input buffer")
-                currentText = ""
 
             return  # Выход из функции changeInputMenu()
         else:
