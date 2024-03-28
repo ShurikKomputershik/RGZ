@@ -1,16 +1,14 @@
-import module.configuration
-
 def unlockProcedure():
-    print(f"Please provide program password: ")
+    print("Please provide program password: ")
 
-    userInput = input()
+    userInput = int(input())  
 
-    if userInput.strip() == module.configuration.password:
+    if userInput == 1234:  
         return True
     
     return False
 
-def userInputValidation(intext : int, lower : int, upper : int):
+def userInputValidation(intext, lower, upper):
     if intext >= lower and intext <= upper:
         return True
     
